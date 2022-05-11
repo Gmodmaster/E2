@@ -1,0 +1,174 @@
+@name Pet V1.1 [Modern] (By Astro)
+@inputs 
+@outputs [Follow Color]:vector Jump
+@trigger
+@persist SoundHit:entity Hit
+@model models/holograms/hq_rcube_thick.mdl
+
+interval(1350)
+
+#You can change the color By Default: vec(255,255,255))
+Color = vec(0,145,255)
+
+#You can change the sound of the hit. Change it whatever you want.
+#if(changed(Hit) & Hit){
+#SoundHit:soundPlay(1,0,"EpicMetal_Heavy.ImpactHard")
+#}
+
+#Idle Sound
+if(first()){
+soundPlay(3,0,"ambient/atmosphere/tunnel1.wav")
+}
+
+#---------------------------
+
+#do not change's these settings/code.
+entity():setMass(1200)
+entity():setAlpha(0)
+entity():propPhysicalMaterial("rubber")
+
+Jump=1
+
+
+Follow = (owner():pos() - entity():pos())*845 entity():applyForce(Follow)
+
+if(Jump){ entity():applyForce(vec(0, 0, 145500)) entity():soundPlay(2,0,"ambient/water/drip3.wav") }
+    
+soundPitch(1,random(500*1500))
+soundPitch(2,255)
+#end
+
+
+#holo (box) (DO NOT CHANGE THESE HOLOGRAM POS/ANG/SCALE ANYTHING. THIS IS THE BASE OF IT.)
+if(first()){
+
+    #Top Bar
+    holoCreate(1)
+    holoModel(1,"models/hunter/plates/plate05.mdl")
+    holoPos(1,entity():toWorld(vec(6,0,5.0)))
+    holoAng(1,entity():toWorld(ang(0,0,0)))
+    holoMaterial(1,"phoenix_storms/fender_white")
+    holoColor(1,vec(30,30,30))
+    holoScale(1,vec(0.5,0.5,0.5))
+    holoParent(1,entity())
+    
+    holoCreate(2)
+    holoModel(2,"models/hunter/plates/plate05.mdl")
+    holoPos(2,entity():toWorld(vec(-6,0,5.0)))
+    holoAng(2,entity():toWorld(ang(0,0,0)))
+    holoMaterial(2,"phoenix_storms/fender_white")
+    holoColor(2,vec(30,30,30))
+    holoScale(2,vec(0.5,0.5,0.5))
+    holoParent(2,entity())
+    
+    #Bar1
+    holoCreate(3)
+    holoModel(3,"models/hunter/plates/plate05.mdl")
+    holoPos(3,entity():toWorld(vec(-6,-5,0.0)))
+    holoAng(3,entity():toWorld(ang(0,0,90)))
+    holoMaterial(3,"phoenix_storms/fender_white")
+    holoColor(3,vec(30,30,30))
+    holoScale(3,vec(0.5,0.5,0.5))
+    holoParent(3,entity())
+    
+    holoCreate(4)
+    holoModel(4,"models/hunter/plates/plate05.mdl")
+    holoPos(4,entity():toWorld(vec(-6,6.5,0.0)))
+    holoAng(4,entity():toWorld(ang(0,0,90)))
+    holoMaterial(4,"phoenix_storms/fender_white")
+    holoColor(4,vec(30,30,30))
+    holoScale(4,vec(0.5,0.5,0.5))
+    holoParent(4,entity())
+    
+    #Bar2
+    holoCreate(5)
+    holoModel(5,"models/hunter/plates/plate05.mdl")
+    holoPos(5,entity():toWorld(vec(6,-5,0.0)))
+    holoAng(5,entity():toWorld(ang(0,0,90)))
+    holoMaterial(5,"phoenix_storms/fender_white")
+    holoColor(5,vec(30,30,30))
+    holoScale(5,vec(0.5,0.5,0.5))
+    holoParent(5,entity())
+    
+    holoCreate(6)
+    holoModel(6,"models/hunter/plates/plate05.mdl")
+    holoPos(6,entity():toWorld(vec(6,6.5,0.0)))
+    holoAng(6,entity():toWorld(ang(0,0,90)))
+    holoMaterial(6,"phoenix_storms/fender_white")
+    holoColor(6,vec(30,30,30))
+    holoScale(6,vec(0.5,0.5,0.5))
+    holoParent(6,entity())
+    
+    #Bottom Bar
+    holoCreate(7)
+    holoModel(7,"models/hunter/plates/plate05.mdl")
+    holoPos(7,entity():toWorld(vec(6,0,-6.5)))
+    holoAng(7,entity():toWorld(ang(0,0,0)))
+    holoMaterial(7,"phoenix_storms/fender_white")
+    holoColor(7,vec(30,30,30))
+    holoScale(7,vec(0.5,0.5,0.5))
+    holoParent(7,entity())
+    
+    holoCreate(8)
+    holoModel(8,"models/hunter/plates/plate05.mdl")
+    holoPos(8,entity():toWorld(vec(-6,0,-6.5)))
+    holoAng(8,entity():toWorld(ang(0,0,0)))
+    holoMaterial(8,"phoenix_storms/fender_white")
+    holoColor(8,vec(30,30,30))
+    holoScale(8,vec(0.5,0.5,0.5))
+    holoParent(8,entity())
+    
+    #Top-Side Bar
+    holoCreate(9)
+    holoModel(9,"models/hunter/plates/plate05.mdl")
+    holoPos(9,entity():toWorld(vec(0,6,5.0)))
+    holoAng(9,entity():toWorld(ang(0,90,0)))
+    holoMaterial(9,"phoenix_storms/fender_white")
+    holoColor(9,vec(30,30,30))
+    holoScale(9,vec(0.5,0.5,0.5))
+    holoParent(9,entity())
+    
+    holoCreate(10)
+    holoModel(10,"models/hunter/plates/plate05.mdl")
+    holoPos(10,entity():toWorld(vec(0,-6,5.0)))
+    holoAng(10,entity():toWorld(ang(0,90,0)))
+    holoMaterial(10,"phoenix_storms/fender_white")
+    holoColor(10,vec(30,30,30))
+    holoScale(10,vec(0.5,0.5,0.5))
+    holoParent(10,entity())
+    
+    #Bottom-Side Bar
+    holoCreate(11)
+    holoModel(11,"models/hunter/plates/plate05.mdl")
+    holoPos(11,entity():toWorld(vec(0,6,-6.5)))
+    holoAng(11,entity():toWorld(ang(0,90,0)))
+    holoMaterial(11,"phoenix_storms/fender_white")
+    holoColor(11,vec(30,30,30))
+    holoScale(11,vec(0.5,0.5,0.5))
+    holoParent(11,entity())
+    
+    holoCreate(12)
+    holoModel(12,"models/hunter/plates/plate05.mdl")
+    holoPos(12,entity():toWorld(vec(0,-6,-6.5)))
+    holoAng(12,entity():toWorld(ang(0,90,0)))
+    holoMaterial(12,"phoenix_storms/fender_white")
+    holoColor(12,vec(30,30,30))
+    holoScale(12,vec(0.5,0.5,0.5))
+    holoParent(12,entity())
+    
+    #Ball
+    holoCreate(13)
+    holoModel(13,"models/sprops/geometry/sphere_9.mdl")
+    holoPos(13,entity():toWorld(vec(0,0,0)))
+    holoAng(13,entity():toWorld(ang(0,0,0)))
+    holoMaterial(13,"models/ihvtest/eyeball_l")
+    holoColor(13,Color)
+    holoScale(13,vec(1,1,1))
+    holoParent(13,entity())
+    
+    lightCreate(1)
+    lightColor(1,Color)
+    lightDistance(1,60)
+    lightParent(1,entity())
+    
+}
